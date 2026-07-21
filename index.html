@@ -33,7 +33,7 @@
   a{color:inherit;text-decoration:none;}
   h1,h2,h3{font-family:'Inter Tight','Inter',sans-serif;letter-spacing:-0.02em;}
   /* Wider, near full-bleed content container to match original proportions */
-  .wrap{max-width:1600px;margin:0 auto;padding:0 56px;}
+  .wrap{max-width:1600px;margin:0 auto;padding:0 16px;}
 
   /* NAVBAR (over hero) */
   header{
@@ -84,6 +84,24 @@
     opacity:.55;
   }
   .hero-inner{position:relative;z-index:2;padding-bottom:88px;width:100%;}
+  .ca-badge{
+    display:inline-flex;align-items:center;gap:8px;
+    background:rgba(255,255,255,0.06);
+    border:1px solid rgba(255,255,255,0.16);
+    backdrop-filter:blur(6px);
+    padding:7px 14px;border-radius:100px;
+    margin-bottom:18px;
+  }
+  .ca-badge .ca-label{
+    font-size:11px;font-weight:700;letter-spacing:.08em;
+    color:#0a0a0a;background:var(--mint);
+    padding:3px 8px;border-radius:100px;
+  }
+  .ca-badge .ca-address{
+    font-family:'Inter Tight',monospace;
+    font-size:12.5px;font-weight:500;color:#e7e9e8;
+    letter-spacing:.01em;
+  }
   .eyebrow-tag{
     display:flex;align-items:center;gap:8px;
     font-size:12px;font-weight:700;letter-spacing:.12em;
@@ -254,6 +272,10 @@
 
   <div class="hero-inner">
     <div class="wrap">
+      <div class="ca-badge">
+        <span class="ca-label">CA</span>
+        <span class="ca-address">Coming at drop — check X / Telegram</span>
+      </div>
       <div class="eyebrow-tag">
         <svg viewBox="0 0 24 24" fill="none"><path d="M13 2L4 14h6l-1 8 9-12h-6l1-8z" fill="white"/></svg>
         YIELD ROUTING ON ROBINHOOD CHAIN
@@ -273,42 +295,7 @@
 
 <div class="wrap">
 
-  <div style="margin-top:-70px;position:relative;z-index:3;">
-    <div class="stats-card">
-      <div class="stat mint"><b>6h</b><span>Rebalance check</span></div>
-      <div class="stat mint"><b>ERC-4626</b><span>Vault standard</span></div>
-      <div class="stat coral"><b>~7%</b><span>USDG earn benchmark</span></div>
-      <div class="stat white"><b>0</b><span>Hot wallets</span></div>
-    </div>
-  </div>
-
-  <div class="eyebrow" id="optimizer">Optimizer cycle</div>
-  <h2 class="section-title">Trigger. Score. Attest. Route.</h2>
-
-  <div class="steps">
-    <div class="step-card">
-      <div class="step-num">01</div>
-      <h3>Trigger</h3>
-      <p>Chainlink Automation runs a keeper check every 6 hours. No cron job, no key sitting on a server.</p>
-    </div>
-    <div class="step-card">
-      <div class="step-num">02</div>
-      <h3>Score</h3>
-      <p>Pull live APY, TVL, and risk data from every connected venue. Hash the inputs so the result is reproducible.</p>
-    </div>
-    <div class="step-card">
-      <div class="step-num">03</div>
-      <h3>Attest</h3>
-      <p>Post the decision on-chain: winner, runner-up, expected extra yield in bps, and the input hash.</p>
-    </div>
-    <div class="step-card">
-      <div class="step-num">04</div>
-      <h3>Route</h3>
-      <p>If the extra yield beats the rebalance threshold, move funds up to the per-venue cap. Otherwise skip and wait.</p>
-    </div>
-  </div>
-
-  <div class="eyebrow" id="why">Why Yieldfy</div>
+  <div class="eyebrow" id="why" style="margin-top:40px;">Why Yieldfy</div>
   <h2 class="section-title">A rules engine.</h2>
   <p class="section-desc">Scoring is a fixed formula. Same inputs, same winner, every time. Execution runs on Chainlink Automation with no human in the loop. Every rebalance writes a signed decision to the chain, so you can audit any route after the fact.</p>
 
@@ -345,6 +332,41 @@
     </div>
   </div>
 
+  <div style="margin-top:60px;">
+    <div class="stats-card">
+      <div class="stat mint"><b>6h</b><span>Rebalance check</span></div>
+      <div class="stat mint"><b>ERC-4626</b><span>Vault standard</span></div>
+      <div class="stat coral"><b>~7%</b><span>USDG earn benchmark</span></div>
+      <div class="stat white"><b>0</b><span>Hot wallets</span></div>
+    </div>
+  </div>
+
+  <div class="eyebrow" id="optimizer">Optimizer cycle</div>
+  <h2 class="section-title">Trigger. Score. Attest. Route.</h2>
+
+  <div class="steps">
+    <div class="step-card">
+      <div class="step-num">01</div>
+      <h3>Trigger</h3>
+      <p>Chainlink Automation runs a keeper check every 6 hours. No cron job, no key sitting on a server.</p>
+    </div>
+    <div class="step-card">
+      <div class="step-num">02</div>
+      <h3>Score</h3>
+      <p>Pull live APY, TVL, and risk data from every connected venue. Hash the inputs so the result is reproducible.</p>
+    </div>
+    <div class="step-card">
+      <div class="step-num">03</div>
+      <h3>Attest</h3>
+      <p>Post the decision on-chain: winner, runner-up, expected extra yield in bps, and the input hash.</p>
+    </div>
+    <div class="step-card">
+      <div class="step-num">04</div>
+      <h3>Route</h3>
+      <p>If the extra yield beats the rebalance threshold, move funds up to the per-venue cap. Otherwise skip and wait.</p>
+    </div>
+  </div>
+
   <div class="eyebrow" id="scoring">Scoring formula</div>
 
   <div class="scoring-card">
@@ -370,7 +392,7 @@
     </div>
     <div class="final-cta-buttons">
       <a href="#app" class="btn-pill-white">✨ Launch App</a>
-      <a href="#x" class="btn-pill-outline">Follow X</a>
+      <a href="https://x.com/yieldfy" target="_blank" rel="noopener" class="btn-pill-outline">Follow X</a>
     </div>
   </div>
 
@@ -385,7 +407,7 @@
         © 2026 YIELDFY
       </div>
       <div class="foot-links">
-        <a href="#x">X / Twitter</a>
+        <a href="https://x.com/yieldfy" target="_blank" rel="noopener">X / Twitter</a>
         <a href="#tg">Telegram</a>
       </div>
     </div>
