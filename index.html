@@ -32,7 +32,8 @@
   }
   a{color:inherit;text-decoration:none;}
   h1,h2,h3{font-family:'Inter Tight','Inter',sans-serif;letter-spacing:-0.02em;}
-  .wrap{max-width:1240px;margin:0 auto;padding:0 32px;}
+  /* Wider, near full-bleed content container to match original proportions */
+  .wrap{max-width:1600px;margin:0 auto;padding:0 56px;}
 
   /* NAVBAR (over hero) */
   header{
@@ -40,7 +41,8 @@
     padding:28px 0;
   }
   nav{display:flex;align-items:center;justify-content:space-between;}
-  .logo-mark{width:26px;height:26px;display:block;}
+  .logo-mark{display:flex;align-items:center;}
+  .logo-mark svg{display:block;height:24px;width:auto;}
   .nav-links{display:flex;gap:36px;font-size:14px;color:#e7e9e8;}
   .nav-links a{opacity:.85;transition:opacity .15s;}
   .nav-links a:hover{opacity:1;}
@@ -68,17 +70,18 @@
     display:flex;align-items:flex-end;
     overflow:hidden;
     background:
-      radial-gradient(ellipse 900px 700px at 12% 8%, rgba(214,192,158,0.55) 0%, rgba(214,192,158,0) 55%),
-      radial-gradient(ellipse 1100px 900px at 62% 30%, rgba(106,167,140,0.5) 0%, rgba(60,110,90,0.25) 45%, rgba(0,0,0,0) 70%),
-      linear-gradient(180deg, #2a2c26 0%, #171a17 35%, #000000 78%);
+      radial-gradient(ellipse 1300px 1000px at 6% 0%, rgba(220,200,166,0.7) 0%, rgba(196,188,150,0.4) 30%, rgba(150,165,130,0.18) 55%, rgba(0,0,0,0) 75%),
+      radial-gradient(ellipse 1600px 1300px at 55% 30%, rgba(140,190,165,0.62) 0%, rgba(110,165,140,0.48) 30%, rgba(75,125,105,0.3) 55%, rgba(20,45,38,0.12) 75%, rgba(0,0,0,0) 92%),
+      linear-gradient(180deg, #2c2e27 0%, #202420 30%, #10130f 65%, #020302 100%);
   }
   .hero::before{
+    /* subtle round blob visible in the green area, like a soft embossed sphere */
     content:"";
-    position:absolute;top:16%;left:38%;width:520px;height:620px;
-    background:radial-gradient(circle at 50% 30%, rgba(255,255,255,0.10), rgba(255,255,255,0) 60%);
-    filter:blur(2px);
+    position:absolute;top:22%;left:40%;width:520px;height:620px;
+    background:radial-gradient(circle at 50% 35%, rgba(255,255,255,0.16) 0%, rgba(255,255,255,0.05) 45%, rgba(255,255,255,0) 70%);
+    filter:blur(4px);
     border-radius:50%;
-    opacity:.5;
+    opacity:.55;
   }
   .hero-inner{position:relative;z-index:2;padding-bottom:88px;width:100%;}
   .eyebrow-tag{
@@ -86,9 +89,10 @@
     font-size:12px;font-weight:700;letter-spacing:.12em;
     color:#d7dbd8;margin-bottom:22px;
   }
+  .eyebrow-tag svg{width:13px;height:13px;flex-shrink:0;}
   h1.hero-title{
-    font-size:64px;font-weight:600;color:#fff;
-    max-width:760px;line-height:1.08;margin-bottom:22px;
+    font-size:64px;font-weight:700;color:#fff;
+    max-width:900px;line-height:1.08;margin-bottom:22px;
   }
   .hero p{
     color:#c7ccc9;font-size:18px;max-width:600px;margin-bottom:36px;line-height:1.55;
@@ -102,6 +106,7 @@
   .btn:hover{transform:translateY(-1px);}
   .btn-primary{background:#ffffff;color:#0a0a0a;}
   .btn-primary:hover{opacity:.9;}
+  .btn-primary svg{width:15px;height:15px;}
   .btn-ghost{
     background:rgba(255,255,255,0.06);
     border:1px solid rgba(255,255,255,0.16);
@@ -212,6 +217,7 @@
   footer{border-top:1px solid var(--border);padding:32px 0;margin-top:20px;}
   .foot-row{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:16px;}
   .foot-left{display:flex;align-items:center;gap:12px;color:var(--muted);font-size:13px;}
+  .foot-left svg{width:18px;height:18px;}
   .foot-links{display:flex;gap:24px;color:var(--muted);font-size:13px;}
   .foot-links a:hover{color:#fff;}
 </style>
@@ -222,7 +228,13 @@
   <header>
     <div class="wrap">
       <nav>
-        <svg class="logo-mark" viewBox="0 0 32 32" fill="none"><path d="M4 4L16 16L4 28M16 4L28 4L16 16" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <a href="#" class="logo-mark" aria-label="Yieldfy">
+          <svg viewBox="0 0 30 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M4 3 L4 13 L15 3" stroke="white" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M4 13 L4 25" stroke="white" stroke-width="3.2" stroke-linecap="round"/>
+            <path d="M19 13 L28 13 M19 13 L19 25 M19 19 L26 19" stroke="white" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </a>
         <div class="nav-links">
           <a href="#vault">Vault</a>
           <a href="#venues">Venues</a>
@@ -242,11 +254,17 @@
 
   <div class="hero-inner">
     <div class="wrap">
-      <div class="eyebrow-tag">⚡ YIELD ROUTING ON ROBINHOOD CHAIN</div>
+      <div class="eyebrow-tag">
+        <svg viewBox="0 0 24 24" fill="none"><path d="M13 2L4 14h6l-1 8 9-12h-6l1-8z" fill="white"/></svg>
+        YIELD ROUTING ON ROBINHOOD CHAIN
+      </div>
       <h1 class="hero-title">Predictable yield on tokenized stocks.</h1>
       <p>Deposit AAPL, NVDA, GOOG, or USDG into an ERC-4626 vault. Yieldfy scores every connected venue on the same formula and routes your capital to the best one automatically. No admin approvals.</p>
       <div class="btn-row">
-        <a href="#app" class="btn btn-primary">✨ Launch App</a>
+        <a href="#app" class="btn btn-primary">
+          <svg viewBox="0 0 24 24" fill="none"><path d="M12 3l1.8 5.4L19 10l-5.2 1.6L12 17l-1.8-5.4L5 10l5.2-1.6L12 3z" fill="#0a0a0a"/></svg>
+          Launch App
+        </a>
         <a href="#docs" class="btn btn-ghost">Read the Docs</a>
       </div>
     </div>
@@ -359,7 +377,11 @@
   <footer>
     <div class="foot-row">
       <div class="foot-left">
-        <svg width="20" height="20" viewBox="0 0 32 32" fill="none"><path d="M4 4L16 16L4 28M16 4L28 4L16 16" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <svg viewBox="0 0 30 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M4 3 L4 13 L15 3" stroke="white" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M4 13 L4 25" stroke="white" stroke-width="3.2" stroke-linecap="round"/>
+          <path d="M19 13 L28 13 M19 13 L19 25 M19 19 L26 19" stroke="white" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
         © 2026 YIELDFY
       </div>
       <div class="foot-links">
